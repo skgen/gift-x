@@ -1,0 +1,9 @@
+{
+  "name": "monorepo",
+  "packageManager": "pnpm@10.10.0",
+  "devDependencies": {
+    "@antfu/eslint-config": "catalog:lint",
+    "eslint": "catalog:lint",
+    "eslint-plugin-format": "catalog:lint"
+  }
+}

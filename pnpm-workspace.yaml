@@ -1,0 +1,67 @@
+packages:
+  - packages/nuxt
+
+catalogs:
+  build:
+    '@tsconfig/node20': ^20.1.5
+    chokidar: ^4.0.3
+    dotenv-flow: ^4.1.0
+    dotenv-parse-variables: ^2.0.0
+    fs-extra: ^11.3.0
+    glob: ^11.0.3
+    pathe: ^2.0.3
+    sass-embedded: ^1.80.6
+    tsx: ^4.20.6
+    typescript: ^5.8.2
+    ufo: ^1.6.1
+    vue-tsc: ^2.2.8
+  codegen:
+    '@graphql-codegen/cli': ^6.0.1
+    '@graphql-codegen/introspection': ^5.0.0
+    '@graphql-codegen/typescript': ^5.0.2
+    '@graphql-codegen/typescript-generic-sdk': ^4.0.2
+    '@graphql-codegen/typescript-graphql-request': ^6.3.0
+    '@hey-api/openapi-ts': ^0.86.11
+  lint:
+    '@antfu/eslint-config': ^6.0.0
+    eslint: ^9.29.0
+    eslint-plugin-format: ^1.0.1
+    stylelint: ^16.9.0
+    stylelint-config-recess-order: ^5.1.1
+    stylelint-config-standard: ^36.0.1
+    stylelint-config-standard-scss: ^13.1.0
+    stylelint-config-standard-vue: ^1.0.0
+  nuxt:
+    '@nuxt/image': ^1.10.0
+    nuxt: ^4.1.0
+    nuxt-svgo-loader: 0.5.0
+  runtime:
+    '@atmina/urql-custom-scalars-exchange': ^1.2.0
+    '@pinia/nuxt': ^0.11.3
+    '@skgn/kit': ^1.1.0
+    '@skgn/melkor': 2.0.0-alpha.12
+    '@urql/core': ^6.0.1
+    '@vueuse/core': ^13.5.0
+    axios: ^1.13.1
+    date-fns: ^4.1.0
+    defu: ^6.1.4
+    graphql: ^16.1.0
+    graphql-scalars: ^1.25.0
+    graphql-tag: ^2.12.6
+    gsap: ^3.13.0
+    lodash-es: ^4.17.21
+    vue: ^3.5.12
+    vue-router: ^4.4.5
+    zod: ^4.1.12
+  types:
+    '@types/dotenv-parse-variables': ^2.0.3
+    '@types/fs-extra': ^11.0.4
+    '@types/lodash-es': ^4.17.12
+    '@types/node': ^22.13.14
+    '@types/rison': ^0.0.7
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - esbuild
+  - sharp
+  - unrs-resolver
+  - vue-demi

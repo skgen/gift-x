@@ -1,0 +1,52 @@
+services:
+  database:
+    image: 'postgres:17'
+    volumes:
+      - './packages/database/data:/var/lib/postgresql/data'
+      - './packages/database/backups:/var/lib/postgresql/backups'
+    environment:
+      POSTGRES_USER: $POSTGRES_USER
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+      POSTGRES_DB: $POSTGRES_DB
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U $POSTGRES_USER -d $POSTGRES_DB
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+  directus:
+    image: 'directus/directus:11.12.0'
+    volumes:
+      - './packages/directus/uploads:/directus/uploads'
+      - './packages/directus/extensions:/directus/extensions'
+    environment:
+      SECRET: $DIRECTUS_SECRET
+      DB_CLIENT: $DIRECTUS_DB_CLIENT
+      DB_HOST: $DIRECTUS_DB_HOST
+      DB_PORT: $DIRECTUS_DB_PORT
+      DB_DATABASE: $DIRECTUS_DB_DATABASE
+      DB_USER: $DIRECTUS_DB_USER
+      DB_PASSWORD: $DIRECTUS_DB_PASSWORD
+      ADMIN_EMAIL: $DIRECTUS_ADMIN_EMAIL
+      ADMIN_PASSWORD: $DIRECTUS_ADMIN_PASSWORD
+      WEBSOCKETS_ENABLED: $DIRECTUS_WEBSOCKETS_ENABLED
+      CORS_ENABLED: $DIRECTUS_CORS_ENABLED
+      CORS_ORIGIN: $DIRECTUS_CORS_ORIGIN
+      PUBLIC_URL: $DIRECTUS_PUBLIC_URL
+      SESSION_COOKIE_DOMAIN: $DIRECTUS_SESSION_COOKIE_DOMAIN
+      SESSION_COOKIE_SAME_SITE: $DIRECTUS_SESSION_COOKIE_SAME_SITE
+      SESSION_COOKIE_SECURE: $DIRECTUS_SESSION_COOKIE_SECURE
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - 'wget --no-verbose --tries=1 --spider http://127.0.0.1:8055/server/health || exit 1'
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    depends_on:
+      database:
+        condition: service_healthy
+        restart: true

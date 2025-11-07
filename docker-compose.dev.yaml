@@ -1,0 +1,24 @@
+services:
+  database:
+    extends:
+      file: docker-compose.yaml
+      service: database
+    container_name: xgift-database
+    ports:
+      - '3002:5432'
+    networks:
+      - xgift-network
+    
+  directus:
+    extends:
+      file: docker-compose.yaml
+      service: directus
+    container_name: xgift-directus
+    ports:
+      - '3001:8055'
+    networks:
+      - xgift-network
+
+networks:
+  xgift-network:
+    external: true
