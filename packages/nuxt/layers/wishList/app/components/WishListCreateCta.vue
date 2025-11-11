@@ -9,7 +9,7 @@
       emit('created');
     }"
   >
-    Créer ma liste <AppLoader v-if="pending" />
+    Créer ma liste
   </MkButton>
 </template>
 
@@ -26,5 +26,5 @@ const props = defineProps<Props>();
 
 const emit = defineEmits<Emits>();
 
-const { execute, pending } = useCreateWishList();
+const { execute } = useCreateWishList();
 </script>
