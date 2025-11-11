@@ -1,0 +1,8 @@
+services:
+  nuxt:
+    extends:
+      file: docker-compose.nuxt.yaml
+      service: nuxt
+    container_name: xgift-nuxt
+    ports:
+      - '3000:3000'
