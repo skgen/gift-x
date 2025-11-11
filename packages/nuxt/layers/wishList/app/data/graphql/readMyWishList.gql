@@ -1,0 +1,29 @@
+query readMyWishList($eventId: ID!) {
+  wishList: wish_list(
+    filter:  {
+       user_created:  {
+          id:  {
+             _eq: "$CURRENT_USER"
+          }
+       }
+       event:  {
+          id:  {
+             _eq: $eventId
+          }
+       }
+    }
+  ) {
+    id
+    event {
+      name
+    }
+    wishes: wish {
+      id
+      name
+      image {
+        id
+        title
+      }
+    }
+  }
+}

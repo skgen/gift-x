@@ -1,0 +1,14 @@
+query wish($id: ID!) {
+  wish: wish_by_id(id: $id) {
+    id
+    name
+    url
+    description
+    image {
+      id
+    }
+    wishList: wish_list {
+      id
+    }
+  }
+}

@@ -1,0 +1,17 @@
+query readMyEvents {
+  events: event {
+    name
+    id
+    wishLists: wish_list(
+      filter: {
+        user_created:  {
+          id:  {
+             _eq: "$CURRENT_USER"
+          }
+       }
+      }
+    ) {
+      id
+    }
+  }
+}

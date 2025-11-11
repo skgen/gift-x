@@ -1,0 +1,18 @@
+query readOtherUsers {
+  users(
+    filter:  {
+       id:  {
+          _neq: "$CURRENT_USER"
+       }
+       role:  {
+          name:  {
+            _eq: "User"
+          }
+        }
+    }
+  ) {
+    id
+    firstName: first_name
+    lastName: last_name
+  }
+}

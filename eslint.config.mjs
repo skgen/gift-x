@@ -5,6 +5,10 @@ export default antfu(
     type: 'lib',
     typescript: {
       overrides: {
+        // lack of vue support, see https://github.com/un-ts/eslint-plugin-import-x/issues/177
+        'import/first': ['off'],
+        // lack of vue support, same as https://github.com/un-ts/eslint-plugin-import-x/issues/177
+        'import/no-duplicates': ['off'],
         'perfectionist/sort-imports': [
           'error',
           {

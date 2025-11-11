@@ -1,0 +1,6 @@
+mutation createWish($data: create_wish_input!) {
+  wish: create_wish_item(data: $data) {
+    id
+    name
+  }
+}

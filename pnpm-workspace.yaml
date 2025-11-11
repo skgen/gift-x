@@ -5,6 +5,7 @@ catalogs:
   build:
     '@tsconfig/node20': ^20.1.5
     chokidar: ^4.0.3
+    concurrently: ^9.2.1
     dotenv-flow: ^4.1.0
     dotenv-parse-variables: ^2.0.0
     fs-extra: ^11.3.0
@@ -39,9 +40,10 @@ catalogs:
     '@atmina/urql-custom-scalars-exchange': ^1.2.0
     '@pinia/nuxt': ^0.11.3
     '@skgn/kit': ^1.1.0
-    '@skgn/melkor': 2.0.0-alpha.12
+    '@skgn/melkor': 2.0.0-alpha.16
     '@urql/core': ^6.0.1
-    '@vueuse/core': ^13.5.0
+    '@vueuse/core': ^13.0.0
+    '@vueuse/router': ^13.0.0
     axios: ^1.13.1
     date-fns: ^4.1.0
     defu: ^6.1.4
@@ -50,6 +52,9 @@ catalogs:
     graphql-tag: ^2.12.6
     gsap: ^3.13.0
     lodash-es: ^4.17.21
+    pretty-bytes: ^7.1.0
+    reka-ui: ^2.6.0
+    vaul-vue: ^0.4.1
     vue: ^3.5.12
     vue-router: ^4.4.5
     zod: ^4.1.12

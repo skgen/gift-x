@@ -1,0 +1,22 @@
+query readWishList($id: ID!) {
+  wishList: wish_list_by_id(id: $id) {
+    id
+    event {
+      name
+    }
+    user: user_created {
+      firstName: first_name
+      lastName: last_name
+    }
+    wishes: wish(sort: ["-date_created"]) {
+      id
+      name
+      url
+      description
+      image {
+        id
+        title
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+query readFolderByName($folderName: String!) {
+  folders(filter: {
+    name: {
+      _eq: $folderName
+    }
+  }) {
+    id
+    name
+  }
+}

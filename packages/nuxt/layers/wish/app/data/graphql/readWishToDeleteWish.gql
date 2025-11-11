@@ -1,0 +1,8 @@
+query readWishToDeleteWish($id: ID!) {
+  wish: wish_by_id(id: $id) {
+    id
+    image {
+      id
+    }
+  }
+}

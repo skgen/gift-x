@@ -1,0 +1,5 @@
+mutation deleteWish($id: ID!) {
+  wish: delete_wish_item(id: $id) {
+    id
+  }
+}

@@ -1,0 +1,6 @@
+mutation updateWish($id: ID!, $data: update_wish_input!) {
+  wish: update_wish_item(id: $id, data: $data) {
+    id
+    name
+  }
+}

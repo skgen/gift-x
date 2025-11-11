@@ -1,0 +1,27 @@
+query readEventWithSiblingsWishList($id: ID!) {
+  event: event_by_id(id: $id) {
+    name
+    id
+    wishLists: wish_list(
+      filter: {
+        user_created:  {
+          id:  {
+             _neq: "$CURRENT_USER"
+          }
+          role:  {
+             name:  {
+                _eq: "User"
+             }
+          }
+       }
+      }
+    ) {
+      id
+      user: user_created {
+        id
+        firstName: first_name
+        lastName: last_name
+      }
+    }
+  }
+}

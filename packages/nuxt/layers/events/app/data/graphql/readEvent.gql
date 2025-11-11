@@ -1,0 +1,6 @@
+query readEvent($id: ID!) {
+  event: event_by_id(id: $id) {
+    name
+    id
+  }
+}

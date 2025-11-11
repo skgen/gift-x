@@ -1,0 +1,3 @@
+mutation logout {
+  auth_logout(mode: session)
+}

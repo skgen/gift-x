@@ -1,0 +1,7 @@
+query readMe {
+  user: users_me {
+    id
+    firstName: first_name
+    lastName: last_name
+  }
+}

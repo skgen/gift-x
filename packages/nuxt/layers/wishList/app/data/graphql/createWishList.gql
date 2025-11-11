@@ -1,0 +1,11 @@
+mutation createWishList($eventId: ID!) {
+  create_wish_list_item(
+    data: {
+      event: {
+         id: $eventId
+      }
+    }
+  ) {
+    id
+  }
+}
