@@ -1,10 +1,19 @@
 <template>
   <MkCard class="sk-WishMiniature">
     <div class="sk-WishMiniature-content">
-      <strong>{{ props.name }}</strong>
-      <div v-if="props.image" class="sk-WishMiniature-content-preview">
+      <div
+        v-if="props.image"
+        class="sk-WishMiniature-content-preview"
+      >
         <NuxtImg :src="`/d6s/${props.image.id}`" />
       </div>
+      <MkSkeleton
+        v-else
+        type="placeholder"
+        width="80px"
+        height="80px"
+      />
+      <strong>{{ props.name }}</strong>
     </div>
     <div class="sk-WishMiniature-actions">
       <MkButton icon intent="error" variant="outline" @click="() => handleConfirmDelete()">
@@ -108,8 +117,8 @@ async function handleDelete() {
 
     &-preview {
       position: relative;
-      width: 100px;
-      height: 50px;
+      width: 80px;
+      height: 80px;
       overflow: hidden;
       border: 1px solid var(--mk-border-color);
       border-radius: var(--mk-border-radius-size);
