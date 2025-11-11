@@ -22,6 +22,9 @@
           </template>
         </template>
         <template v-else>
+          <AppEmptyListTitle>
+            {{ wishList.data.value.user?.firstName }} n'a ajouté aucun souhait pour le moment !
+          </AppEmptyListTitle>
           <WishCardPlaceholder />
           <WishCardPlaceholder />
           <WishCardPlaceholder />

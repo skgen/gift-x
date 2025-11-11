@@ -31,6 +31,9 @@
             </template>
           </template>
           <template v-else>
+            <AppEmptyListTitle>
+              Tu n'as ajouté aucun souhait pour le moment !
+            </AppEmptyListTitle>
             <WishMiniaturePlaceholder />
             <WishMiniaturePlaceholder />
             <WishMiniaturePlaceholder />
