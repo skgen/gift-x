@@ -12,12 +12,19 @@
       </h2>
 
       <div class="sk-EventWishListPage-list">
-        <template v-for="wish of wishList.data.value.wishes" :key="wish?.id">
-          <WishCard
-            v-if="wish"
-            :name="wish.name"
-            :single-route="`/event/${eventId}/wish/${wish.id}`"
-          />
+        <template v-if="wishList.data.value.wishes?.length">
+          <template v-for="wish of wishList.data.value.wishes" :key="wish?.id">
+            <WishCard
+              v-if="wish"
+              :name="wish.name"
+              :single-route="`/event/${eventId}/wish/${wish.id}`"
+            />
+          </template>
+        </template>
+        <template v-else>
+          <WishCardPlaceholder />
+          <WishCardPlaceholder />
+          <WishCardPlaceholder />
         </template>
       </div>
     </div>
