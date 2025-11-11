@@ -16,25 +16,23 @@
       <strong>{{ props.name }}</strong>
     </div>
     <div class="sk-WishMiniature-actions">
-      <MkButton icon intent="error" variant="outline" @click="() => handleConfirmDelete()">
-        <AppLoader v-if="pending" />
-        <MkIcon v-else icon="lucide:trash-2" />
-      </MkButton>
-
-      <NuxtLink v-if="props.editRoute" :to="props.editRoute">
-        <MkButton icon intent="neutral" variant="outline">
-          <MkIcon icon="lucide:pencil-line" />
+      <slot name="actions">
+        <MkButton icon intent="error" variant="outline" @click="() => handleConfirmDelete()">
+          <AppLoader v-if="pending" />
+          <MkIcon v-else icon="lucide:trash-2" />
         </MkButton>
-      </NuxtLink>
+
+        <NuxtLink v-if="props.editRoute" :to="props.editRoute">
+          <MkButton icon intent="neutral" variant="outline">
+            <MkIcon icon="lucide:pencil-line" />
+          </MkButton>
+        </NuxtLink>
+      </slot>
     </div>
   </MkCard>
 </template>
 
-<script lang="ts" setup>
-import type { RouteLocationRaw } from 'vue-router';
-
-import { Button, Icon } from '@skgn/melkor/nuxt/components';
-
+<script lang="ts">
 interface Props {
   id: string;
   name: string;
@@ -50,8 +48,22 @@ interface Emits {
   delete: [];
 }
 
+interface Slots {
+  actions?: Slot;
+}
+</script>
+
+<script lang="ts" setup>
+import type { Slot } from 'vue';
+import type { RouteLocationRaw } from 'vue-router';
+
+import { Button, Icon } from '@skgn/melkor/nuxt/components';
+
 const props = defineProps<Props>();
+
 const emits = defineEmits<Emits>();
+
+defineSlots<Slots>();
 
 const toast = useToast();
 const { execute, pending } = useDeleteWish();
@@ -102,6 +114,7 @@ async function handleDelete() {
 <style lang="scss">
 .sk-WishMiniature {
   display: flex;
+  gap: var(--mk-size-4);
   align-items: center;
   justify-content: space-between;
 
@@ -125,15 +138,16 @@ async function handleDelete() {
 
       img {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
   }
 
   &-actions {
     display: flex;
+    flex: 0 0 auto;
     gap: var(--mk-size-4);
     align-items: center;
   }

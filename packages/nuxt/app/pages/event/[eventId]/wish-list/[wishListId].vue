@@ -14,20 +14,33 @@
       <div class="sk-EventWishListPage-list">
         <template v-if="wishList.data.value.wishes?.length">
           <template v-for="wish of wishList.data.value.wishes" :key="wish?.id">
-            <WishCard
+            <WishMiniature
               v-if="wish"
+              :id="wish.id"
               :name="wish.name"
-              :single-route="`/event/${eventId}/wish/${wish.id}`"
-            />
+              :image="wish.image ? {
+                id: wish.image?.id,
+                title: wish.image.title ?? undefined,
+                alt: wish.image.title ?? undefined,
+              } : undefined"
+            >
+              <template #actions>
+                <NuxtLink :to="`/event/${eventId}/wish/${wish.id}`">
+                  <MkButton variant="outline">
+                    Voir le souhait
+                  </MkButton>
+                </NuxtLink>
+              </template>
+            </WishMiniature>
           </template>
         </template>
         <template v-else>
           <AppEmptyListTitle>
             {{ wishList.data.value.user?.firstName }} n'a ajouté aucun souhait pour le moment !
           </AppEmptyListTitle>
-          <WishCardPlaceholder />
-          <WishCardPlaceholder />
-          <WishCardPlaceholder />
+          <WishMiniaturePlaceholder />
+          <WishMiniaturePlaceholder />
+          <WishMiniaturePlaceholder />
         </template>
       </div>
     </div>

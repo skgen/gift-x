@@ -41,12 +41,16 @@
         </div>
       </template>
     </div>
-    <template #fab>
+    <template
+      v-if="myWishList.data.value"
+      #fab
+    >
       <NuxtLink
         :to="{
           path: '/wish/create',
           query: {
             submitRedirect: route.fullPath,
+            wishListId: myWishList.data.value.id,
           },
         }"
       >
