@@ -4,7 +4,7 @@
       <div class="sk-WishForm-form-fields">
         <MkInputText v-bind="fields.name">
           <template #label>
-            Nom*
+            Nom du souhait*
           </template>
           <template #hint>
             Requis
@@ -12,7 +12,7 @@
         </MkInputText>
         <MkInputText v-bind="fields.url">
           <template #label>
-            Lien
+            Lien du souhait
           </template>
           <template #hint>
             Optionnel
