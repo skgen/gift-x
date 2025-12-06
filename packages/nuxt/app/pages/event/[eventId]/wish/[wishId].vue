@@ -22,7 +22,8 @@
       </NuxtLink>
 
       <NuxtImg
-        :src="`/d6s/${wish.data.value.image?.id}`"
+        v-if="wish.data.value.image"
+        :src="`/d6s/${wish.data.value.image.id}`"
         class="sk-EventWishPage-image"
       />
 
