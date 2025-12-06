@@ -5,7 +5,12 @@
         v-if="props.image"
         class="sk-WishMiniature-content-preview"
       >
-        <NuxtImg :src="`/d6s/${props.image.id}`" />
+        <NuxtImg
+          :src="getImageSource({
+            id: props.image.id,
+            key: 'miniature',
+          })"
+        />
       </div>
       <MkSkeleton
         v-else

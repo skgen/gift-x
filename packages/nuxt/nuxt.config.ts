@@ -27,6 +27,7 @@ export default defineNuxtConfig((() => {
         appHost: '',
         restApiHost: '',
         graphqlApiHost: '',
+        assetsApiHost: '',
       },
     },
 
@@ -38,22 +39,22 @@ export default defineNuxtConfig((() => {
       ],
     },
 
-    image: {
-      domains: [
-        'api.xgift.skgen.me',
-      ],
-      // directus: {
-      //   baseURL: new URL('/assets', process.env.NUXT_PUBLIC_ASSETS_API_HOST).href,
-      // },
-      // inject: true,
-      // domains: [
-      //   process.env.NUXT_PUBLIC_ASSETS_API_HOST,
-      // ],
-      alias: {
-        d6s: new URL('/assets', 'https://api.xgift.skgen.me').href,
-      },
-    // quality: 100,
-    },
+    // image: {
+    //   domains: [
+    //     'api.xgift.skgen.me',
+    //   ],
+    //   // directus: {
+    //   //   baseURL: new URL('/assets', process.env.NUXT_PUBLIC_ASSETS_API_HOST).href,
+    //   // },
+    //   // inject: true,
+    //   // domains: [
+    //   //   process.env.NUXT_PUBLIC_ASSETS_API_HOST,
+    //   // ],
+    //   alias: {
+    //     d6s: new URL('/assets', 'https://api.xgift.skgen.me').href,
+    //   },
+    // // quality: 100,
+    // },
 
     melkor: {
       themes: [Theme.dark],

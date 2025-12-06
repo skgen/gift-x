@@ -23,7 +23,10 @@
 
       <NuxtImg
         v-if="wish.data.value.image"
-        :src="`/d6s/${wish.data.value.image.id}`"
+        :src="getImageSource({
+          id: wish.data.value.image.id,
+          key: 'cover-mobile',
+        })"
         class="sk-EventWishPage-image"
       />
 

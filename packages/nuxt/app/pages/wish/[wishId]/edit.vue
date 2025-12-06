@@ -42,8 +42,6 @@ const submitRedirect = useRouteQuery(
   z.string().optional(),
 );
 
-const img = useImage();
-
 const wish = useReadWish(reactive({
   data: {
     id: wishId,
@@ -61,7 +59,10 @@ watch(wish.data, async (newWish) => {
   if (newWish.image?.id) {
     image = {
       id: newWish.image.id,
-      file: await fileFromUrl(img(`/d6s/${newWish.image.id}`)),
+      file: await fileFromUrl(getImageSource({
+        id: newWish.image?.id,
+        key: 'default',
+      })),
     };
   }
 
